@@ -1,0 +1,12 @@
+<div>
+    <table>
+        <tr>
+            <th>Menu</th>
+        </tr>
+        <div *ngFor = "let menuItem of menuItems">
+        <tr >
+            <td><menuItemComponent [item] = 'menuItem'></menuItemComponent></td>
+         </tr>
+        </div>
+    </table>
+</div>

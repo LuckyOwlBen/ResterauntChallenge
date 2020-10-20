@@ -7,12 +7,16 @@ import {MaterialsModule} from './Materials/MaterialsModule';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MenuItemComponent } from './Components/menu-item/menu-item.component';
 import { MenuComponent } from './Views/menu/menu.component';
+import { ShoppingCartButtonComponent } from './Components/buttons/shopping-cart-button/shopping-cart-button.component';
+import { CheckoutComponent } from './Views/checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuItemComponent,
     MenuComponent,
+    ShoppingCartButtonComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

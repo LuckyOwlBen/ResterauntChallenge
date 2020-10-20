@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from '../../Objects/menuItem';
 import { MenuItemComponent } from '../../Components/menu-item/menu-item.component'
+import { ShoppingCartService } from '../../Services/shoppingCart/shopping-cart.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +11,10 @@ import { MenuItemComponent } from '../../Components/menu-item/menu-item.componen
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private shoppingCart: ShoppingCartService,
+    private router : Router,
+  ) { }
   
   menuItems: MenuItem[];
 
@@ -22,12 +27,21 @@ export class MenuComponent implements OnInit {
     item1.itemName = "steak";
     item1.itemDescription = "yum";
     item1.price = "3.99";
+    item1.itemCode = "001";
     this.menuItems.push(item1);
     let item2 = new MenuItem();
     item2.itemName = "steak";
     item2.itemDescription = "yum";
     item2.price = "3.99";
+    item2.itemCode = "002"
     this.menuItems.push(item2);
-    console.log(this.menuItems);
+  }
+
+  addToCart(itemSelected: MenuItem) {
+    this.shoppingCart.addToCart(itemSelected);
+  }
+
+  goToCheckout(){
+    this.router.navigate(['/checkout']);
   }
 }

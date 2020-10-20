@@ -1,0 +1,3 @@
+<div *ngFor = "let menuItem of cart">
+    <app-menu-item [item] = "menuItem" (selected) = "removeFromCart($event)" ></app-menu-item>
+</div>

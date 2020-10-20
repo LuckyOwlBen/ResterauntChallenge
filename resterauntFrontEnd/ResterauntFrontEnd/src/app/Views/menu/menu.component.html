@@ -1,12 +1,11 @@
 <div>
+    <app-shopping-cart-button (event) = "goToCheckout()"></app-shopping-cart-button>
+</div>
+<div>
+    <h2>Menu</h2>
     <table>
-        <tr>
-            <th>Menu</th>
+        <tr *ngFor = "let menuItem of menuItems">
+            <app-menu-item [item] = "menuItem" (selected) = "addToCart($event)" ></app-menu-item>
         </tr>
-        <div *ngFor = "let menuItem of menuItems">
-        <tr >
-            <td><menuItemComponent [item] = 'menuItem'></menuItemComponent></td>
-         </tr>
-        </div>
     </table>
 </div>

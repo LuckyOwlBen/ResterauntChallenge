@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShoppingCartService } from '../../Services/shoppingCart/shopping-cart.service';
 import { MenuItem } from '../../Objects/menuItem';
 
@@ -9,7 +10,10 @@ import { MenuItem } from '../../Objects/menuItem';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(
+    private cartService: ShoppingCartService,
+    private router: Router,
+  ) { }
 
   cart: MenuItem[] = new Array();
 
@@ -20,6 +24,10 @@ export class CheckoutComponent implements OnInit {
   removeFromCart(menuItem: MenuItem){
     this.cartService.removeFromCart(menuItem);
     this.cart = this.cartService.getCart();
+  }
+
+  back() {
+    this.router.navigate(["/menu"]);
   }
 
 }

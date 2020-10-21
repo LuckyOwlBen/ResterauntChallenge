@@ -11,6 +11,7 @@ import { ShoppingCartButtonComponent } from './Components/buttons/shopping-cart-
 import { CheckoutComponent } from './Views/checkout/checkout.component';
 import { PaymentModalComponent } from './Components/Modals/payment-modal/payment-modal.component';
 import { PaymentButtonComponent } from './Components/buttons/payment-button/payment-button.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PaymentButtonComponent } from './Components/buttons/payment-button/paym
     CommonModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialsModule
+    MaterialsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

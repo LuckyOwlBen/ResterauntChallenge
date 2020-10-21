@@ -15,7 +15,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private cartService: ShoppingCartService,
     private router: Router,
-    public modal: MatDialog,
+    private modal: MatDialog,
   ) { }
 
   cart: MenuItem[] = new Array();
@@ -34,10 +34,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   openModal(): void {
-    const modalRef = this.modal.open(PaymentModalComponent, {
-      width: '35rem',
-      disableClose: false,
-    });
+    const modalRef = this.modal.open(PaymentModalComponent);
     modalRef.afterClosed().subscribe(result =>{});
   }
 

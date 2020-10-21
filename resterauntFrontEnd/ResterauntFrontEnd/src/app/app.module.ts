@@ -9,6 +9,8 @@ import { MenuItemComponent } from './Components/menu-item/menu-item.component';
 import { MenuComponent } from './Views/menu/menu.component';
 import { ShoppingCartButtonComponent } from './Components/buttons/shopping-cart-button/shopping-cart-button.component';
 import { CheckoutComponent } from './Views/checkout/checkout.component';
+import { PaymentModalComponent } from './Components/Modals/payment-modal/payment-modal.component';
+import { PaymentButtonComponent } from './Components/buttons/payment-button/payment-button.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,11 @@ import { CheckoutComponent } from './Views/checkout/checkout.component';
     MenuComponent,
     ShoppingCartButtonComponent,
     CheckoutComponent,
+    PaymentModalComponent,
+    PaymentButtonComponent,
+  ],
+  entryComponents: [
+    PaymentModalComponent
   ],
   imports: [
     BrowserModule,

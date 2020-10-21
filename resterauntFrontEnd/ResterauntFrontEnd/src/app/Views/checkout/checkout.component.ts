@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { ShoppingCartService } from '../../Services/shoppingCart/shopping-cart.service';
 import { MenuItem } from '../../Objects/menuItem';
+import { PaymentModalComponent } from '../../Components/Modals/payment-modal/payment-modal.component';
 
 @Component({
   selector: 'app-checkout',
@@ -13,6 +15,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private cartService: ShoppingCartService,
     private router: Router,
+    public modal: MatDialog,
   ) { }
 
   cart: MenuItem[] = new Array();
@@ -28,6 +31,14 @@ export class CheckoutComponent implements OnInit {
 
   back() {
     this.router.navigate(["/menu"]);
+  }
+
+  openModal(): void {
+    const modalRef = this.modal.open(PaymentModalComponent, {
+      width: '35rem',
+      disableClose: false,
+    });
+    modalRef.afterClosed().subscribe(result =>{});
   }
 
 }

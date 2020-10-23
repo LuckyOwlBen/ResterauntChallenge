@@ -1,3 +1,26 @@
-<div >
-    <p>payment-modal works!</p>
-</div>
+<div mat-dialog-content>
+    <label>Card Number</label>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.cardNumber" type="text">
+    </mat-form-field>
+    <label>Exp Date</label>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.expDate" type="text">
+    </mat-form-field>
+    <label>Security Code</label>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.securityCode" type="text">
+    </mat-form-field>
+    <label>Name as it apppears on the card</label>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.nameOnCard" type="text">
+    </mat-form-field>
+    <label>Address</label>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.address" type="number">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [disabled]="!validation()" (click)="submit()">Ok</button>
+  </div>

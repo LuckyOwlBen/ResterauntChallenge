@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuItem } from '../../Objects/menuItem';
 import { MenuItemComponent } from '../../Components/menu-item/menu-item.component'
 import { ShoppingCartService } from '../../Services/shoppingCart/shopping-cart.service';
+import { MenuService } from '../../Services/menuService/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +15,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private shoppingCart: ShoppingCartService,
     private router : Router,
+    private menuService: MenuService,
   ) { }
   
   menuItems: MenuItem[];
@@ -22,19 +24,9 @@ export class MenuComponent implements OnInit {
   menuItemComponent: MenuItemComponent;
 
   ngOnInit(): void {
-    this.menuItems = new Array();
-    let item1 = new MenuItem();
-    item1.itemName = "steak";
-    item1.itemDescription = "yum";
-    item1.price = "3.99";
-    item1.itemCode = "001";
-    this.menuItems.push(item1);
-    let item2 = new MenuItem();
-    item2.itemName = "steak";
-    item2.itemDescription = "yum";
-    item2.price = "3.99";
-    item2.itemCode = "002"
-    this.menuItems.push(item2);
+    this.menuService.getMenu().subscribe(menuResponse =>{
+      this.menuItems = menuResponse.menu;
+    });
   }
 
   addToCart(itemSelected: MenuItem) {

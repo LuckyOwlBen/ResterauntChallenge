@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import {MaterialsModule} from './Materials/MaterialsModule';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MenuItemComponent } from './Components/menu-item/menu-item.component';
@@ -33,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     MaterialsModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

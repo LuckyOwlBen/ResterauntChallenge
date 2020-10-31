@@ -14,7 +14,7 @@ export class MenuService {
   private apiURL = "http://localhost:8080/auth/menu";
 
   public getMenu(): Observable<MenuResponse> {
-    return this.http.get<MenuResponse>(this.apiURL);
+    return this.http.post<MenuResponse>(this.apiURL,null);
   }
 
 

@@ -1,11 +1,11 @@
-package com.example.food.repositories;
+package com.food.repositories;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.food.entities.UserEntity;
+import com.food.entities.UserEntity;
 
 @Repository
 public interface UserRepo extends JpaRepository<UserEntity, Long> {

@@ -21,16 +21,27 @@ export class CheckoutComponent implements OnInit {
   ) { }
 
   cart: MenuItem[] = new Array();
+  orderId: string;
   subTotal: string;
+  total: string;
 
   ngOnInit(): void {
-    this.cart = this.cartService.getCart();
-    
+    this.cartService.addOrderNumber(this.orderId);
+    this.submitCart();
+  }
+
+  submitCart() {
+    this.cartService.submitOrder().subscribe(response =>{
+      this.cart = response.menu;
+      this.orderId = response.orderId;
+      this.subTotal = response.subtotal;
+      this.total = response.total;
+    });
   }
 
   removeFromCart(menuItem: MenuItem){
     this.cartService.removeFromCart(menuItem);
-    this.cart = this.cartService.getCart();
+    this.submitCart();
   }
 
   back() {

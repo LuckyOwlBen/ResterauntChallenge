@@ -1,4 +1,4 @@
-package com.example.food.util;
+package com.food.util;
 
 import java.util.Date;
 import java.util.HashMap;

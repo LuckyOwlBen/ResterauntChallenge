@@ -1,4 +1,4 @@
-package com.example.food.filters;
+package com.food.filters;
 
 import java.io.IOException;
 
@@ -15,8 +15,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.example.food.configuration.AuthDetailRetrieval;
-import com.example.food.util.JwtUtil;
+import com.food.configuration.AuthDetailRetrieval;
+import com.food.util.JwtUtil;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {

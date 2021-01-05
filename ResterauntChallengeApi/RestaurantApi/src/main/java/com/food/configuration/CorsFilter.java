@@ -1,4 +1,4 @@
-package com.example.food.configuration;
+package com.food.configuration;
 
 import java.io.IOException;
 

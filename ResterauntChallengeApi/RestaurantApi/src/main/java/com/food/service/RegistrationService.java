@@ -1,15 +1,16 @@
-package com.example.food.service;
+package com.food.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.food.entities.PasswordEntity;
-import com.example.food.entities.UserEntity;
-import com.example.food.repositories.UserRepo;
-import com.example.food.requests.RegistrationRequest;
-import com.example.food.responses.RegistrationResponse;
+import com.food.entities.PasswordEntity;
+import com.food.entities.UserEntity;
+import com.food.repositories.UserRepo;
+import com.food.requests.RegistrationRequest;
+import com.food.responses.RegistrationResponse;
 
 @Service
 public class RegistrationService {
@@ -18,6 +19,7 @@ public class RegistrationService {
 	private UserEntity user = new UserEntity();
 	private PasswordEntity password = new PasswordEntity();
 
+	@Autowired
 	public RegistrationService(UserRepo repo) {
 		this.repo = repo;
 	}

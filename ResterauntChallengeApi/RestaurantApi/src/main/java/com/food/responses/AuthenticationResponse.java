@@ -1,4 +1,4 @@
-package com.example.food.responses;
+package com.food.responses;
 
 public class AuthenticationResponse {
 	

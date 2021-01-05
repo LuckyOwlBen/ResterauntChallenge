@@ -1,4 +1,4 @@
-package com.example.food.entities;
+package com.food.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

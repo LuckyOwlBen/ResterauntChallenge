@@ -1,40 +1,37 @@
-package com.example.food.service;
+package com.food.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.food.entities.MenuItemsEntity;
-import com.example.food.repositories.MenuRepo;
-import com.example.food.responses.MenuResponse;
+import com.food.entities.MenuItemsEntity;
+import com.food.repositories.MenuRepo;
+import com.food.requests.AddToMenuRequest;
+import com.food.responses.MenuResponse;
 
 @Service
 public class MenuService {
 
 	private MenuRepo menuRepo;
-	
-	private MenuResponse menu; 
-	
+
+	private MenuResponse menu = new MenuResponse();
+
 	@Autowired
 	public MenuService(MenuRepo menuRepo) {
 		this.menuRepo = menuRepo;
 	}
-	
+
 	public MenuResponse getMenu() {
-		
-		try {
-			menu.setMenu(menuRepo.findAll());
-			return menu;
-		} catch(NullPointerException e) {
-			System.out.println("nothing from db");
-			return new MenuResponse();
-		}
-		
-		
+
+		menu.setMenu(menuRepo.findAll());
+		return menu;
 	}
-	
-	public void addToMenu(MenuItemsEntity menuItem) {
+
+	public void addToMenu(AddToMenuRequest request) {
+
+		MenuItemsEntity menuItem = new MenuItemsEntity();
+		menuItem.setItemName(request.getItemName());
+		menuItem.setItemDesc(request.getItemDesc());
+		menuItem.setItemPrice(request.getItemPrice());
 		menuRepo.save(menuItem);
 	}
-	
-	
 }

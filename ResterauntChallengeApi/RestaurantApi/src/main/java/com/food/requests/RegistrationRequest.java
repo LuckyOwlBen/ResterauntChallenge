@@ -1,4 +1,4 @@
-package com.example.food.requests;
+package com.food.requests;
 
 public class RegistrationRequest {
 	

@@ -1,4 +1,4 @@
-package com.example.food.controllers;
+package com.food.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.food.requests.AuthenticationRequest;
-import com.example.food.responses.AuthenticationResponse;
-import com.example.food.service.AuthenticationService;
+import com.food.requests.AuthenticationRequest;
+import com.food.responses.AuthenticationResponse;
+import com.food.service.AuthenticationService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController

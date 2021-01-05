@@ -1,4 +1,4 @@
-package com.example.food.configuration;
+package com.food.configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.food.entities.UserEntity;
-import com.example.food.repositories.UserRepo;
+import com.food.entities.UserEntity;
+import com.food.repositories.UserRepo;
 
 @Service
 public class AuthDetailRetrieval implements UserDetailsService {

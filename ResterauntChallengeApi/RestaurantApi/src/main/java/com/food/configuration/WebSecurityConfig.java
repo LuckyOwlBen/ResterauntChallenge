@@ -1,4 +1,4 @@
-package com.example.food.configuration;
+package com.food.configuration;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.food.filters.JwtRequestFilter;
+import com.food.filters.JwtRequestFilter;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

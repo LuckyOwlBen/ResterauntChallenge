@@ -3,9 +3,9 @@ package com.food.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.food.entities.PasswordEntity;
+import com.food.entities.OrderEntity;
 
 @Repository
-public interface PasswordRepo extends JpaRepository<PasswordEntity, Long> {
+public interface OrderRepo extends JpaRepository<OrderEntity, Long> {
 
 }

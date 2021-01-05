@@ -1,4 +1,4 @@
-package com.example.food.service;
+package com.food.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,11 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.food.configuration.AuthDetailRetrieval;
-import com.example.food.repositories.UserRepo;
-import com.example.food.requests.AuthenticationRequest;
-import com.example.food.responses.AuthenticationResponse;
-import com.example.food.util.JwtUtil;
+import com.food.configuration.AuthDetailRetrieval;
+import com.food.repositories.UserRepo;
+import com.food.requests.AuthenticationRequest;
+import com.food.responses.AuthenticationResponse;
+import com.food.util.JwtUtil;
 
 @Service
 public class AuthenticationService {

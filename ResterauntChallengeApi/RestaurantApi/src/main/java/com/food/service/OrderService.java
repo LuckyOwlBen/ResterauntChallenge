@@ -20,7 +20,7 @@ public class OrderService {
 	private OrderRepo orderRepo;
 	
 	private static DecimalFormat df = new DecimalFormat("0.00");
-	private double subtotal = 0;
+	private double subtotal;
 	private double tax = .18;
 	
 	
@@ -41,7 +41,7 @@ public class OrderService {
 	
 	private OrderEntity totalOrder (OrderEntity orderEntity) {
 		
-		
+		subtotal = 0;
 		df.setRoundingMode(RoundingMode.UP);
 		
 		orderEntity.getOrderCart().forEach(element -> {

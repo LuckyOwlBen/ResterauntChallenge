@@ -2,6 +2,7 @@ package com.food.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class OrderEntity {
 	private Long id;
 	
 	@Column(name="ORDER_ID")
-	private String orderId;
+	private String orderID;
 	
 	@Column(name="SUBTOTAL")
 	private String subtotal;
@@ -31,7 +32,7 @@ public class OrderEntity {
 	@Column(name="TOTAL")
 	private String total;
 	
-	@OneToMany
+	@OneToMany(cascade= CascadeType.ALL)
 	@Column(name = "ORDER_CART")
 	private List<CartItemEntity> orderCart;
 
@@ -52,11 +53,11 @@ public class OrderEntity {
 	}
 
 	public String getOrderId() {
-		return orderId;
+		return orderID;
 	}
 
 	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+		this.orderID = orderId;
 	}
 
 	public String getSubtotal() {

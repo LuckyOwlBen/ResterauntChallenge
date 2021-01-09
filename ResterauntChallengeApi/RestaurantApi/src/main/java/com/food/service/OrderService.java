@@ -77,10 +77,11 @@ public class OrderService {
 	private OrderEntity checkOrderNumber(OrderRequest request) throws BadRequestException  {
 		OrderEntity orderEntity = new OrderEntity();
 		if(request.getOrderId() == null) {
-			orderEntity.setOrderCart(request.getMenu());
+			orderEntity.setOrderId("0");
 			orderEntity = orderRepo.save(orderEntity);
 			orderEntity.setOrderId(generateNewOrderId(orderEntity.getId()));
 			orderEntity = orderRepo.save(orderEntity);
+			orderEntity.setOrderCart(request.getMenu());
 		} else {
 			Optional<OrderEntity> optional = orderRepo.findById(decodeOrderId(request.getOrderId()));
 			if(optional.isPresent()) {

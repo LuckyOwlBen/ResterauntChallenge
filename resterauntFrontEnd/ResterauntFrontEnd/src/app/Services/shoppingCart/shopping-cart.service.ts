@@ -13,6 +13,7 @@ export class ShoppingCartService {
   constructor(private http: HttpClient) { }
 
   private cart: MenuItem[] =  new Array();
+  private orderId: string;
   private apiURL = "http://localhost:8080/auth/submitOrder";
   private orderRequest = new OrderRequest();
 
@@ -32,12 +33,18 @@ export class ShoppingCartService {
 
   submitOrder(): Observable<OrderResponse> {
     this.orderRequest.menu = this.getCart();
+    this.orderRequest.orderId = this.orderId;
     return this.http.post<OrderResponse>(this.apiURL,this.orderRequest)
   }
 
-  addOrderNumber(orderNumber: String){
-    this.orderRequest.orderId = orderNumber;
+  addOrderNumber(orderNumber: string){
+    this.orderId = orderNumber;
   }
+
+  getOrderNumber(): string {
+    return this.orderId;
+  }
+
 
   getCart(): MenuItem[] {
     return this.cart;

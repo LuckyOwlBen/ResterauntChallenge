@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
   total: string;
 
   ngOnInit(): void {
-    this.cartService.addOrderNumber(this.orderId);
+    this.orderId = this.cartService.getOrderNumber();
     this.submitCart();
   }
 
@@ -36,6 +36,7 @@ export class CheckoutComponent implements OnInit {
       this.orderId = response.orderId;
       this.subTotal = response.subtotal;
       this.total = response.total;
+      this.cartService.addOrderNumber(response.orderId);
     });
   }
 

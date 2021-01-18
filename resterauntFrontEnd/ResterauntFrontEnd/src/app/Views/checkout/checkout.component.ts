@@ -42,7 +42,7 @@ export class CheckoutComponent implements OnInit {
 
   removeFromCart(menuItem: MenuItem){
     this.cartService.removeFromCart(menuItem);
-    this.submitCart();
+    this.ngOnInit();
   }
 
   back() {

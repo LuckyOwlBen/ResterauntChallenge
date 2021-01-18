@@ -52,7 +52,14 @@ export class ShoppingCartService {
 
   removeFromCart(menuItem: MenuItem){
     let index = this.cart.indexOf(menuItem);
-    this.cart.splice(index,1)
+    
+    if(menuItem.quantity > 1){
+      --menuItem.quantity;
+      this.cart.splice(index,1,menuItem);
+    } else {
+      this.cart.splice(index,1);
+    }
+   
   }
 
 

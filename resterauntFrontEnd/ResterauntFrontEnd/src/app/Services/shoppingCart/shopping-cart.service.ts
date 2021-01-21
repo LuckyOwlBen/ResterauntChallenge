@@ -28,7 +28,6 @@ export class ShoppingCartService {
       menuItem.quantity = 1;
       this.cart.push(menuItem);
     }
-    console.log(this.cart);
   }
 
   submitOrder(): Observable<OrderResponse> {
@@ -51,15 +50,19 @@ export class ShoppingCartService {
   }
 
   removeFromCart(menuItem: MenuItem){
-    let index = this.cart.indexOf(menuItem);
     
+    let index = this.cart.findIndex(element =>{
+      if(menuItem.itemName == element.itemName){
+        return true;
+      }
+    });
+
     if(menuItem.quantity > 1){
-      --menuItem.quantity;
+      menuItem.quantity--;
       this.cart.splice(index,1,menuItem);
     } else {
       this.cart.splice(index,1);
     }
-   
   }
 
 

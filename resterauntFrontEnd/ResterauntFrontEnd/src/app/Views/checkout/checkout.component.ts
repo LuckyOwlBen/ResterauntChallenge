@@ -56,6 +56,7 @@ export class CheckoutComponent implements OnInit {
     });
     modalRef.afterClosed().subscribe(result =>{
       this.paymentService.setCardData(result);
+      this.paymentService.setOrderId(this.orderId);
       this.paymentService.setMenuItem(this.cart);
       this.paymentService.submitOrder();
     });

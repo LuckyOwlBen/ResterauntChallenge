@@ -7,5 +7,4 @@ import com.food.entities.CartItemEntity;
 
 @Repository
 public interface CartItemRepo extends JpaRepository<CartItemEntity, Long> {
-
 }

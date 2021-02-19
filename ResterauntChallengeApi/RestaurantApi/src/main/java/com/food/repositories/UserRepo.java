@@ -10,5 +10,5 @@ import com.food.entities.UserEntity;
 @Repository
 public interface UserRepo extends JpaRepository<UserEntity, Long> {
 	
-	List<UserEntity> findByEmail(String email);
+	public List<UserEntity> findByEmail(String email);
 }

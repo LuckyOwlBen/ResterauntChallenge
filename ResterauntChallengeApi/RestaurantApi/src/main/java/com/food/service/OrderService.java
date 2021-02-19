@@ -33,19 +33,21 @@ public class OrderService {
 	public OrderResponse submitOrder(OrderRequest request) {
 		
 		OrderEntity orderEntity = checkOrderNumber(request);
-		orderEntity = totalOrder(orderEntity);
-		OrderResponse response = generateResponse(orderEntity);
+		orderEntity = totalOrder(orderEntity, request);
+		OrderResponse response = generateResponse(orderEntity, request);
 		
 		return response;
 	}
 	
-	private OrderEntity totalOrder (OrderEntity orderEntity) {
+	private OrderEntity totalOrder (OrderEntity orderEntity, OrderRequest request) {
 		
 		subtotal = 0;
 		df.setRoundingMode(RoundingMode.UP);
 		
-		orderEntity.getOrderCart().forEach(element -> {
-			subtotal += Double.parseDouble(element.getItemPrice());
+		request.getMenu().forEach(element -> {
+			double basePrice = Double.parseDouble(element.getItemPrice());
+			int quantity = Integer.parseInt(element.getQuantity());
+			subtotal += (basePrice * quantity); 
 		});
 		
 		orderEntity.setSubtotal(String.valueOf(df.format(subtotal)));
@@ -54,11 +56,11 @@ public class OrderService {
 		return orderEntity;
 	}
 	
-	private OrderResponse generateResponse(OrderEntity orderEntity) {
+	private OrderResponse generateResponse(OrderEntity orderEntity, OrderRequest request) {
 		
 		OrderResponse response = new OrderResponse();
 		response.setOrderId(orderEntity.getOrderId());
-		response.setMenu(orderEntity.getOrderCart());
+		response.setMenu(request.getMenu());
 		response.setSubtotal(orderEntity.getSubtotal());
 		response.setTotal(orderEntity.getTotal());
 		return response;
@@ -81,12 +83,12 @@ public class OrderService {
 			orderEntity = orderRepo.save(orderEntity);
 			orderEntity.setOrderId(generateNewOrderId(orderEntity.getId()));
 			orderEntity = orderRepo.save(orderEntity);
-			orderEntity.setOrderCart(request.getMenu());
+//			orderEntity.setOrderCart(request.getMenu());
 		} else {
 			Optional<OrderEntity> optional = orderRepo.findById(decodeOrderId(request.getOrderId()));
 			if(optional.isPresent()) {
 				 orderEntity = optional.get();
-				 orderEntity.setOrderCart(request.getMenu());
+//				 orderEntity.setOrderCart(request.getMenu());
 				 orderEntity = orderRepo.save(orderEntity);
 			} else {
 				throw new BadRequestException();

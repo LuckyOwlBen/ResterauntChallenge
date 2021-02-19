@@ -7,5 +7,7 @@ import com.food.entities.OrderEntity;
 
 @Repository
 public interface OrderRepo extends JpaRepository<OrderEntity, Long> {
+	
+	public OrderEntity findByOrderId(String orderId);
 
 }

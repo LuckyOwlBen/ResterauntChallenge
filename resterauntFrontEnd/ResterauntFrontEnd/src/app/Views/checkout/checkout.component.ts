@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ShoppingCartService } from '../../Services/shoppingCart/shopping-cart.service';
 import { MenuItem } from '../../Objects/menuItem';
+import { CardData } from '../../Objects/CardData';
 import { PaymentModalComponent } from '../../Components/Modals/payment-modal/payment-modal.component';
 import { PaymentService } from '../../Services/PaymentService/payment.service';
 
@@ -50,9 +51,13 @@ export class CheckoutComponent implements OnInit {
   }
 
   openModal(): void {
-    const modalRef = this.modal.open(PaymentModalComponent);
+    const modalRef = this.modal.open(PaymentModalComponent,{
+      data:{cardData: new CardData()}
+    });
     modalRef.afterClosed().subscribe(result =>{
       this.paymentService.setCardData(result);
+      this.paymentService.setMenuItem(this.cart);
+      this.paymentService.submitOrder();
     });
   }
 

@@ -1,4 +1,4 @@
-export interface CardData {
+export class CardData {
     cardNumber: string;
     expDate: string;
     securityCode: string;

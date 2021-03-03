@@ -13,6 +13,8 @@ import { CheckoutComponent } from './Views/checkout/checkout.component';
 import { PaymentModalComponent } from './Components/Modals/payment-modal/payment-modal.component';
 import { PaymentButtonComponent } from './Components/buttons/payment-button/payment-button.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateMenuComponent } from './Views/update-menu/update-menu.component';
+import { LoginComponent } from './Views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CheckoutComponent,
     PaymentModalComponent,
     PaymentButtonComponent,
+    UpdateMenuComponent,
+    LoginComponent,
   ],
   entryComponents: [
     PaymentModalComponent

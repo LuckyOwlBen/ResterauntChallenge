@@ -15,6 +15,7 @@ import { PaymentButtonComponent } from './Components/buttons/payment-button/paym
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateMenuComponent } from './Views/update-menu/update-menu.component';
 import { LoginComponent } from './Views/login/login.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginComponent } from './Views/login/login.component';
     PaymentButtonComponent,
     UpdateMenuComponent,
     LoginComponent,
+    NavbarComponent,
   ],
   entryComponents: [
     PaymentModalComponent

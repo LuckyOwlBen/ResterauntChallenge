@@ -4,12 +4,14 @@ import { MenuComponent } from './Views/menu/menu.component';
 import { CheckoutComponent } from './Views/checkout/checkout.component';
 import { UpdateMenuComponent } from'./Views/update-menu/update-menu.component';
 import { LoginComponent } from './Views/login/login.component';
+import { ManagerHubComponent } from './Views/manager-hub/manager-hub.component';
 
 const routes: Routes = [
   { path:'menu', component: MenuComponent },
   { path:'checkout', component: CheckoutComponent},
   { path:'updateMenu', component: UpdateMenuComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'managerHub', component: ManagerHubComponent },
   { path: '', redirectTo: '/menu', pathMatch: 'full'}
 ];
 

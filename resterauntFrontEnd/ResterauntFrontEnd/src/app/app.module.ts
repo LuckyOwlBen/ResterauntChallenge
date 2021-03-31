@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateMenuComponent } from './Views/update-menu/update-menu.component';
 import { LoginComponent } from './Views/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ManagerHubComponent } from './Views/manager-hub/manager-hub.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     UpdateMenuComponent,
     LoginComponent,
     NavbarComponent,
+    ManagerHubComponent,
   ],
   entryComponents: [
     PaymentModalComponent

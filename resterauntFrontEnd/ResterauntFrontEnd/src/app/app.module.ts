@@ -17,6 +17,8 @@ import { UpdateMenuComponent } from './Views/update-menu/update-menu.component';
 import { LoginComponent } from './Views/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ManagerHubComponent } from './Views/manager-hub/manager-hub.component';
+import { AddMenuItemComponent } from './Components/add-menu-item/add-menu-item.component';
+import { AddEmployeeComponent } from './Components/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ManagerHubComponent } from './Views/manager-hub/manager-hub.component';
     LoginComponent,
     NavbarComponent,
     ManagerHubComponent,
+    AddMenuItemComponent,
+    AddEmployeeComponent,
   ],
   entryComponents: [
     PaymentModalComponent

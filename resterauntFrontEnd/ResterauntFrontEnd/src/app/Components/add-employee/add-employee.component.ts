@@ -28,9 +28,7 @@ export class AddEmployeeComponent implements OnInit {
     addEmployeeRequest.password = this.password;
     this.employeeService.addEmployee(addEmployeeRequest).subscribe(
       response => {
-        if(response.isSuccess){
-          
-        }
+        console.log(response);
       }
     )
   }

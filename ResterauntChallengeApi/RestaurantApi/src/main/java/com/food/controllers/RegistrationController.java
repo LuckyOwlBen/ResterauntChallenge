@@ -10,7 +10,7 @@ import com.food.requests.RegistrationRequest;
 import com.food.responses.RegistrationResponse;
 import com.food.service.RegistrationService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "Authorization")
 @RestController
 public class RegistrationController {
 	
@@ -21,7 +21,7 @@ public class RegistrationController {
 	private RegistrationService registrationService;
 	
 	
-	@PostMapping(value="/auth/register")
+	@PostMapping(value="/register")
 	public RegistrationResponse registerUser(@RequestBody RegistrationRequest request) {
 		return registrationService.registerUser(request);
 	}

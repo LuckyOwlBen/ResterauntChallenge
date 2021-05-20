@@ -13,8 +13,8 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
-  private apiURL = "http://localhost:8080/auth";
-  private menuURI = "/menu";
+  private apiURL = "http://localhost:8080";
+  private menuURI = "/auth/menu";
   private addMenuURI = "/addMenu"
 
   public getMenu(): Observable<MenuResponse> {
@@ -22,7 +22,12 @@ export class MenuService {
   }
 
   public addToMenu(addToMenuRequest: AddToMenuRequest): Observable<AddToMenuResponse> {
-    return this.http.post<AddToMenuResponse>(this.apiURL + this.addMenuURI, addToMenuRequest);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization' : sessionStorage.getItem("currentUser")
+      })
+    }
+    return this.http.post<AddToMenuResponse>(this.apiURL + this.addMenuURI, addToMenuRequest, httpOptions);
   }
 
 

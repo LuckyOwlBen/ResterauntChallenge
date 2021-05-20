@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Form, NgForm } from '@angular/forms';
 import { EmployeeService } from '../../Services/employeeService/employee.service';
 import { AddEmployeeRequest } from '../../Models/addEmployeeRequest';
 import { AddEmployeeResponse } from '../../Models/addEmployeeResponse';
@@ -12,20 +13,21 @@ export class AddEmployeeComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) { }
 
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-
   ngOnInit(): void {
   }
 
-  submit() {
+  submit(addEmployeeForm: NgForm) {
+    if(addEmployeeForm.invalid){
+      console.log(addEmployeeForm);
+      return;
+    } 
     let addEmployeeRequest = new AddEmployeeRequest();
-    addEmployeeRequest.firstName = this.firstName;
-    addEmployeeRequest.lastName = this.lastName;
-    addEmployeeRequest.email = this.email;
-    addEmployeeRequest.password = this.password;
+    
+    addEmployeeRequest.firstName = addEmployeeForm.value.firstName;
+    addEmployeeRequest.lastName = addEmployeeForm.value.lastName;
+    addEmployeeRequest.email = addEmployeeForm.value.email;
+    addEmployeeRequest.password = addEmployeeForm.value.password;
+    console.log(addEmployeeRequest);
     this.employeeService.addEmployee(addEmployeeRequest).subscribe(
       response => {
         console.log(response);

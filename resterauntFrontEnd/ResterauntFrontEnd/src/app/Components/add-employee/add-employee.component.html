@@ -1,5 +1,12 @@
-<input type=text [(ngModel)] = 'firstName'>
-<input type=text [(ngModel)] = 'lastName'>
-<input type=email [(ngModel)] = 'email'>
-<input type=password [(ngModel)] = 'password'>
-<button (click) = 'submit()'>Add Employee </button>
+<form (ngSubmit)="submit(form)" #form="ngForm">
+    <label for="firstName">First Name</label>
+    <input type=text id="firstName" name="firstName" pattern="[a-zA-Z]*" ngModel required #firstNameControl="ngModel">
+    <div *ngIf="firstNameControl.invalid && firstNameControl.touched">Please enter your first name </div>
+    <label for="lastName">Last Name</label>
+    <input type=text id="lastName" name="lastName" pattern="[a-zA-Z]*"  ngModel required>
+    <label for="email">Email</label>
+    <input type=email id="email" name="email" ngModel required>
+    <label for="password">Password</label>
+    <input type=password id="password" name="password" minlength="8" maxlength="14" ngModel required>
+    <button type="submit" [disabled]="form.invalid">Add Employee </button>
+</form>

@@ -24,6 +24,7 @@ public class PaymentService {
 		currentOrder.setOrderCart(request.getOrderItems());
 		PaymentResponse response = new PaymentResponse();
 		response.setSuccess(true);
+		//prep time for food
 		response.setWaitTime("10 minutes");
 		return response;
 		
